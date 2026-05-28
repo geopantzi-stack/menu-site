@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Ψηφιακό Μενού</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body {
+
+            font-family: Arial, sans-serif;
+            text-align: center;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url("/static/eikona.png");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            min-height: 100vh;
+
+            padding: 40px 20px;
+        }
+
+        /* TITLE AREA */
+
+        .title-area{
+
+            max-width:900px;
+
+            margin:0 auto 50px auto;
+
+            padding:35px 20px;
+
+            border-radius:20px;
+
+            background: linear-gradient(
+                135deg,
+                rgba(20,14,10,0.95),
+                rgba(45,28,18,0.92),
+                rgba(70,40,22,0.90)
+            );
+
+            box-shadow:0 10px 30px rgba(0,0,0,0.45);
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(6px);
+        }
+
+        h1 {
+
+            color: white;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            font-size: 3.2em;
+
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        }
+
+        .menu-container {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+
+            max-width: 500px;
+
+            margin: 0 auto;
+        }
+
+        .btn {
+
+            display: block;
+
+            background: rgba(0, 0, 0, 0.45);
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 18px 20px;
+
+            font-size: 1.3em;
+
+            font-weight: bold;
+
+            border-radius: 14px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            transition: 0.25s ease;
+
+            text-transform: uppercase;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.45);
+
+            backdrop-filter: blur(4px);
+        }
+
+        .btn:hover {
+
+            transform: translateY(-4px);
+
+            background: rgba(255,255,255,0.12);
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        @media(max-width:768px){
+
+            h1{
+                font-size:2em;
+            }
+
+            .title-area{
+                padding:25px 15px;
+            }
+
+            .btn{
+                font-size:1.05em;
+                padding:15px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="title-area">
+
+        <h1>
+            Καλωσήρθατε στο Μενού μας
+        </h1>
+
+    </div>
+
+    <div class="menu-container">
+
+        {% for category in categories %}
+
+            <a href="/category/{{ category }}" class="btn">
+
+                {{ category }}
+
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>
